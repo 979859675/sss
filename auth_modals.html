@@ -1,0 +1,66 @@
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm relative">
+    <button onclick="closeModalById('loginModal')" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-lg"></i></button>
+    <div class="text-center mb-4">
+      <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-2"><i class="fas fa-lock text-white text-xl"></i></div>
+      <h2 class="text-xl font-bold text-gray-800">登录</h2>
+      <p class="text-sm text-gray-500">登录后可下载账单PDF</p>
+    </div>
+    <div class="space-y-3">
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">用户名或邮箱</label><input id="loginUsername" type="text" class="form-input" placeholder="admin"/></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">密码</label><input id="loginPassword" type="password" class="form-input" placeholder="••••••"/></div>
+      <div id="loginError" class="hidden text-sm text-red-600 bg-red-50 p-2 rounded-lg"></div>
+      <button onclick="doLogin()" class="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition"><i class="fas fa-sign-in-alt mr-2"></i>登录</button>
+    </div>
+    <p class="text-center text-sm text-gray-500 mt-4">还没有账号？<button onclick="closeModalById('loginModal');showRegisterModal();" class="text-primary font-medium hover:underline">立即注册</button></p>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm relative">
+    <button onclick="closeModalById('registerModal')" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-lg"></i></button>
+    <div class="text-center mb-4">
+      <div class="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center mx-auto mb-2"><i class="fas fa-user-plus text-white text-xl"></i></div>
+      <h2 class="text-xl font-bold text-gray-800">注册</h2>
+      <p class="text-sm text-gray-500">注册即送3次免费下载</p>
+    </div>
+    <div class="space-y-3">
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">用户名</label><input id="regUsername" type="text" class="form-input" placeholder="您的用户名"/></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">邮箱</label><input id="regEmail" type="email" class="form-input" placeholder="your@email.com"/></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">密码 (至少6位)</label><input id="regPassword" type="password" class="form-input" placeholder="••••••"/></div>
+      <div id="registerError" class="hidden text-sm text-red-600 bg-red-50 p-2 rounded-lg"></div>
+      <button onclick="doRegister()" class="w-full py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition"><i class="fas fa-user-plus mr-2"></i>注册</button>
+    </div>
+    <p class="text-center text-sm text-gray-500 mt-4">已有账号？<button onclick="closeModalById('registerModal');showLoginModal();" class="text-primary font-medium hover:underline">立即登录</button></p>
+  </div>
+</div>
+
+<!-- Purchase Modal -->
+<div id="purchaseModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md relative">
+    <button onclick="closeModalById('purchaseModal')" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-lg"></i></button>
+    <div class="text-center mb-4">
+      <div class="w-12 h-12 rounded-xl bg-orange-500 flex items-center justify-center mx-auto mb-2"><i class="fas fa-shopping-cart text-white text-xl"></i></div>
+      <h2 class="text-xl font-bold text-gray-800">购买下载次数</h2>
+      <p class="text-sm text-gray-500">当前为模拟支付，点击即购买成功</p>
+    </div>
+    <div class="space-y-3">
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">购买次数</label>
+        <select id="purchaseCredits" class="form-input">
+          <option value="1">1次 - 免费模拟</option>
+          <option value="5">5次 - 免费模拟</option>
+          <option value="10">10次 - 免费模拟</option>
+          <option value="50">50次 - 免费模拟</option>
+          <option value="100">100次 - 免费模拟</option>
+        </select>
+      </div>
+      <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-700">
+        <i class="fas fa-info-circle mr-1"></i>支付功能预留开发中，当前为模拟购买，点击后即刻到账。
+      </div>
+      <button onclick="doPurchase()" class="w-full py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition"><i class="fas fa-shopping-cart mr-2"></i>模拟购买</button>
+      <p class="text-center text-xs text-gray-400" id="purchaseGuestNote">未登录也可购买，购买后请注册/登录使用。</p>
+    </div>
+  </div>
+</div>
